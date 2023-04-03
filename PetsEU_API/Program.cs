@@ -1,8 +1,16 @@
+using MySqlConnector;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+// Load Database and add it to DI
+
+string connstring = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddTransient(provider => new MySqlConnection(connstring));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

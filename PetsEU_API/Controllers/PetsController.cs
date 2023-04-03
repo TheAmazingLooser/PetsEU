@@ -6,11 +6,27 @@ namespace PetsEU_API.Controllers
     [Route("[controller]")]
     public class PetsController : Controller
     {
+        private readonly MySqlConnection connection;
+
+        public PetsController(MySqlConnection connection)
+        {
+            this.connection = connection;
+        }
+
         [HttpGet(Name = "GetPets")]
         public IEnumerable<Pets> Get(int? id)
         {
-            // TODO: Implement
-            return null;
+            if(id.HasValue)
+            {
+                
+            } else
+            {
+                List<Pets> pets = connection.Query<Pets>("Select * from post").ToList();
+                foreach(var pet in pets)
+                {
+                    
+                }
+            }
         }
     }
 }
