@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dapper;
+using Microsoft.AspNetCore.Mvc;
+using MySqlConnector;
 
 namespace PetsEU_API.Controllers
 {
@@ -16,16 +18,13 @@ namespace PetsEU_API.Controllers
         [HttpGet(Name = "GetPets")]
         public IEnumerable<Pets> Get(int? id)
         {
-            if(id.HasValue)
+            List<Pets> pets = connection.Query<Pets>("Select * from post").ToList();
+            if (id.HasValue)
             {
-                
+                return pets.Where(p => p.Id == id.Value);
             } else
             {
-                List<Pets> pets = connection.Query<Pets>("Select * from post").ToList();
-                foreach(var pet in pets)
-                {
-                    
-                }
+                return pets;
             }
         }
     }
