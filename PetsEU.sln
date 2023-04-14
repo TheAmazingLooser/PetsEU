@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsEU_API", "PetsEU_API\PetsEU_API.csproj", "{CFE73657-AD3B-429A-B76A-FDB64CFDD6DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsEU_Frontend", "PetsEU_Frontend\PetsEU_Frontend.csproj", "{C03C781B-3755-418E-9B7C-58FEF5049322}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFE73657-AD3B-429A-B76A-FDB64CFDD6DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFE73657-AD3B-429A-B76A-FDB64CFDD6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFE73657-AD3B-429A-B76A-FDB64CFDD6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFE73657-AD3B-429A-B76A-FDB64CFDD6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C03C781B-3755-418E-9B7C-58FEF5049322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03C781B-3755-418E-9B7C-58FEF5049322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03C781B-3755-418E-9B7C-58FEF5049322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03C781B-3755-418E-9B7C-58FEF5049322}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11672D73-383D-4ED5-8D9C-8D72BAD50DD6}
+	EndGlobalSection
+EndGlobal
