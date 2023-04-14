@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsEU_API", "PetsEU_API.csproj", "{CFE73657-AD3B-429A-B76A-FDB64CFDD6DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsEU_API", "PetsEU_API\PetsEU_API.csproj", "{CFE73657-AD3B-429A-B76A-FDB64CFDD6DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsEU_Frontend", "..\PetsEU_Frontend\PetsEU_Frontend.csproj", "{C03C781B-3755-418E-9B7C-58FEF5049322}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetsEU_Frontend", "PetsEU_Frontend\PetsEU_Frontend.csproj", "{C03C781B-3755-418E-9B7C-58FEF5049322}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
