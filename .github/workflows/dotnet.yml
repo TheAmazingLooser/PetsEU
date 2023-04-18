@@ -27,15 +27,24 @@ jobs:
       run: dotnet build --no-restore --configuration Release
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Zip Files
+    - name: Zip Files API
       uses: montudor/action-zip@v1
       with:
-        args: zip -qq -r build.zip PetsEU_API/bin/Release/net7.0
+        args: zip -qq -r api.zip PetsEU_API/bin/Release/net7.0
+    - name: Zip Files frontend
+      uses: montudor/action-zip@v1
+      with:
+        args: zip -qq -r frontend.zip PetsEU_Frontend/bin/Release/net7.0
     - name: Upload API artifact
       uses: actions/upload-artifact@v3
       with:
         name: PetsEU_API
-        path: build.zip
+        path: api.zip
+    - name: Upload frontend artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: PetsEU_Front
+        path: frontend.zip
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Download artifacts
@@ -43,9 +52,18 @@ jobs:
       with:
         name: PetsEU_API
         path: artifacts
+    - name: Download artifacts 2
+      uses: actions/download-artifact@v3
+      with:
+        name: PetsEU_Front
+        path: artifacts
+    - name: Delete release
+      uses: liudonghua123/delete-release-action@v1
+      with:
+        release_name: 'Pets latest'
     - name: Create release
       run: |
         TAGNAME=${{ github.ref_name }}
-        hub release create -a artifacts/* -m "Pets Frontend $TAGNAME" -t "master" "$TAGNAME"
+        hub release create -a artifacts/* -m "Pets latest" -t "master" "$TAGNAME"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
