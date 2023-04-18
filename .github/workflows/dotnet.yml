@@ -31,12 +31,6 @@ jobs:
       with:
         name: PetsEU_API
         path: PetsEU_API/bin/Release/net7.0
-        
-  publish_release:
-    name: Publish release
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Download artifacts
