@@ -26,20 +26,27 @@ jobs:
       run: dotnet build --no-restore --configuration Release
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Create Release
-      uses: actions/create-release@v1
-      id: create_release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        body: |
-          This is a release of PetsEU_API and PetsEU_Frontend
-        draft: false
-        prerelease: false
     - name: Upload API artifact
       uses: actions/upload-artifact@v3
       with:
         name: PetsEU_API
         path: PetsEU_API/bin/Release/net7.0
+        
+  publish_release:
+    name: Publish release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: PetsEU_API
+        path: artifacts
+    - name: Create release
+      run: |
+        TAGNAME=${{ github.ref_name }}
+        hub release create -a artifacts/* -m "PlanZ $TAGNAME" -t "master" "$TAGNAME"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
