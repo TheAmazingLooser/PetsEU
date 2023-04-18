@@ -39,7 +39,7 @@ jobs:
         draft: false
         prerelease: false
     - name: Upload API artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v1
       with:
         name: PetsEU_API
         path: PetsEU_API/bin/Release/net7.0
