@@ -39,23 +39,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: PetsEU_API
-        path: api.zip
-    - name: Upload frontend artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: PetsEU_Front
-        path: frontend.zip
+        path: ./*.zip
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Download artifacts
       uses: actions/download-artifact@v3
       with:
         name: PetsEU_API
-        path: artifacts
-    - name: Download artifacts 2
-      uses: actions/download-artifact@v3
-      with:
-        name: PetsEU_Front
         path: artifacts
     - name: Delete release
       uses: liudonghua123/delete-release-action@v1
