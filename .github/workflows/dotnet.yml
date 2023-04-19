@@ -68,6 +68,6 @@ jobs:
     - name: Create release
       run: |
         TAGNAME=${{ github.ref_name }}
-        hub release create -a artifacts/api.zip -a artifacts/frontend.zip -m "Pets latest" -t release-${{ steps.date.outputs.date }}
+        hub release create -a artifacts/api.zip -a artifacts/frontend.zip -m "Pets latest" -t "master" "release-${{ steps.date.outputs.date }}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
