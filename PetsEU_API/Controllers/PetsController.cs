@@ -22,10 +22,49 @@ namespace PetsEU_API.Controllers
             if (id.HasValue)
             {
                 return pets.Where(p => p.Id == id.Value);
-            } else
+            }
+            else
             {
                 return pets;
             }
+        }
+
+        [HttpPost(Name = "InsertPets")]
+        public int Post(string title, string description, int pool_id)
+        {
+            int a = connection.Execute("insert into post (title, description, image_pool_id) values (@title, @description, @pool_id)", new
+            {
+                title,
+                description,
+                pool_id
+            });
+
+            List<int> pets = connection.Query<int>("Select max(id) from post").ToList();
+
+            return pets.First();
+        }
+
+        [HttpPut(Name = "UpdatePets")]
+        public int Post(int id, string description)
+        {
+            int a = connection.Execute("update post set description = @description where id = @id", new
+            {
+                id,
+                description
+            });            
+
+            return id;
+        }
+
+        [HttpDelete(Name = "DeletePets")]
+        public int Delete(int id)
+        {
+            int a = connection.Execute("delete from post where id = @id", new
+            {
+                id
+            });
+
+            return id;
         }
     }
 }
